@@ -445,6 +445,14 @@ footer {
     margin: 0;
 }
 
+.about-quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    font-style: normal;
+    color: var(--color-secondary);
+}
+
 .content-block {
     margin-bottom: 2rem;
 }
