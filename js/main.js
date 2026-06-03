@@ -39,7 +39,14 @@ function renderHeader() {
 
     header.innerHTML = `
         <div class="logo">
-            <a href="index.html"><img src="assets/images/logo.png" alt="BRMCA Logo"></a>
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.png" alt="BRMCA Logo">
+                <div class="logo-text">
+                    <span>BLUE RIDGE MOUNTAIN</span>
+                    <span>CIVIC ASSOCIATION</span>
+                    <span class="logo-est">EST. 2003</span>
+                </div>
+            </a>
         </div>
         <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="main-nav">
             <span></span>
