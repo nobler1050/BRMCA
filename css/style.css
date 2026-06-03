@@ -9,7 +9,7 @@
     --color-text: #333333;
     --color-text-light: #777777;
     --color-white: #ffffff;
-    
+
     /* Typography */
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-heading: 'Georgia', serif;
@@ -42,7 +42,7 @@ header {
 }
 
 .logo img {
-    height: 60px;
+    height: 90px;
     display: block;
 }
 
