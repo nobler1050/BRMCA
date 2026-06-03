@@ -74,31 +74,5 @@ function renderFooter() {
     `;
 }
 
-function initSlider() {
-    const slides = document.getElementsByClassName('slide');
-    if (slides.length === 0) return;
-
-    let index = 0;
-    const show = (i) => {
-        if (i >= slides.length) i = 0;
-        if (i < 0) i = slides.length - 1;
-        index = i;
-        for (let s = 0; s < slides.length; s++) {
-            slides[s].style.display = 'none';
-        }
-        slides[index].style.display = 'block';
-    };
-
-    show(0);
-
-    const prev = document.querySelector('.slider-container .prev');
-    const next = document.querySelector('.slider-container .next');
-    if (prev) prev.addEventListener('click', () => show(index - 1));
-    if (next) next.addEventListener('click', () => show(index + 1));
-
-    setInterval(() => show(index + 1), 5000);
-}
-
 renderHeader();
 renderFooter();
-initSlider();

@@ -33,7 +33,21 @@ HOME │ ABOUT US │ NEWS & EVENTS │ HISTORY │ CONSERVATION │ FIREWISE �
 
 Edit `NAV_LINKS` at the top of `js/main.js` — one change updates every page.
 
-## SEO / polish
+## Easy news/events editing for a non-technical editor
+
+Right now adding a news item means editing `news.html` directly, which requires HTML knowledge and ideally a local checkout. The org needs a workflow a board member can use without touching code. Two candidates worth investigating:
+
+1. **Decap CMS** (formerly Netlify CMS) — free, open-source admin UI that runs as a single page on the static site (e.g. `/admin/`) and commits directly to GitHub when the editor saves. Editor logs in with GitHub, sees a friendly form (Date / Title / PDF upload), clicks save, and the page updates automatically. Closest experience to the Wix admin they're used to.
+   - Setup cost: ~30 minutes one-time (provision a GitHub OAuth app, add `admin/index.html` + a small YAML config).
+   - Recurring cost: $0.
+   - Editor experience: very low friction after setup.
+
+2. **`news.json` data file edited via GitHub web UI** — move the news list out of `news.html` into a JSON file; have `main.js` fetch and render it. Editor opens the file on GitHub.com, clicks the pencil icon, copies an existing entry, edits date/title/URL, commits via the web UI.
+   - Setup cost: ~15 minutes (refactor news rendering to fetch from JSON).
+   - Recurring cost: $0.
+   - Editor experience: requires basic care with JSON syntax (commas, quotes). No CLI needed but trickier than a form.
+
+Decide which approach fits the actual editor's comfort level. Start with JSON if unsure; upgrade to Decap later if syntax errors become a recurring problem.
 
 - Add `<meta name="description">` to each page's `<head>`.
 - Add Open Graph tags (`og:title`, `og:description`, `og:image`) so shared links render with a preview card.
