@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Blue Ridge Mountain Civic Association</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .submit-btn {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/logo.png" alt="BRMCA Logo" style="height: 60px;"></a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT US</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html">CONTACT US</a>
+                    </div>
+                </li>
+                <li><a href="news.html">NEWS & EVENTS</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="firewise.html">FIREWISE</a></li>
+                <li class="dropdown">
+                    <a href="membership.html">MEMBERSHIP</a>
+                    <div class="dropdown-content">
+                        <a href="get-involved.html">GET INVOLVED</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="resources.html">RESOURCES</a>
+                    <div class="dropdown-content">
+                        <a href="conservation.html">CONSERVATION</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">BLOG</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-padding">
+            <div class="container">
+                <h2 style="text-align: center;">Contact Us</h2>
+                <p style="text-align: center;">Have a question or want to get involved? Send us a message below.</p>
+                
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>BLUE RIDGE MOUNTAIN CIVIC ASSOCIATION</p>
+            <p>Follow Us on Social Media</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 by Blue Ridge Mountain Civic Association. Proudly created for the community.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

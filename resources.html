@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Blue Ridge Mountain Civic Association</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .resource-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .resource-card h3 {
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-bg-light);
+            padding-bottom: 0.5rem;
+        }
+        .resource-card ul {
+            list-style: none;
+        }
+        .resource-card li {
+            margin-bottom: 0.5rem;
+        }
+        .resource-card strong {
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/logo.png" alt="BRMCA Logo" style="height: 60px;"></a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT US</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html">CONTACT US</a>
+                    </div>
+                </li>
+                <li><a href="news.html">NEWS & EVENTS</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="firewise.html">FIREWISE</a></li>
+                <li class="dropdown">
+                    <a href="membership.html">MEMBERSHIP</a>
+                    <div class="dropdown-content">
+                        <a href="get-involved.html">GET INVOLVED</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="resources.html">RESOURCES</a>
+                    <div class="dropdown-content">
+                        <a href="conservation.html">CONSERVATION</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">BLOG</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-padding">
+            <div class="container">
+                <h2>Community Resources</h2>
+                <p>Find helpful links and documents related to living in our mountain community.</p>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>Report Outages & Problems</h3>
+                        <ul>
+                            <li><strong>Dominion Power:</strong> 866-366-4357</li>
+                            <li><strong>NOVEC:</strong> 703-335-0500</li>
+                            <li><strong>VDOT:</strong> 800-FOR-ROAD (800-367-7623)</li>
+                            <li><strong>Loudoun Traffic Issue:</strong> <a href="https://lfportal.loudoun.gov/Forms/TrafficComplaint" target="_blank">Complaint Form</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>Useful Numbers</h3>
+                        <ul>
+                            <li><strong>Clarke County Sheriff:</strong> 540-955-1234</li>
+                            <li><strong>Loudoun County Sheriff:</strong> 703-777-1021</li>
+                            <li><strong>Virginia State Police:</strong> 703-771-2533</li>
+                            <li><strong>Wildlife Emergency:</strong> 540-837-9000</li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>Local Government</h3>
+                        <p><strong>Clarke County:</strong> 101 Chalmers Ct., Berryville, VA. 540-955-5100.</p>
+                        <p><strong>Loudoun County:</strong> 1 Harrison Street SE, Leesburg, VA. 703-777-0100.</p>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>Mountain Neighbors</h3>
+                        <ul>
+                            <li><strong>Bear's Den - Appalachian Trail:</strong> Operated by PATC. Gateway to the "rollercoaster" section.</li>
+                            <li><strong>Mount Weather (FEMA):</strong> Emergency Operations Center along Blueridge Mountain Rd.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block" style="margin-top: 3rem;">
+                    <h3>Outdoor Burning Restrictions</h3>
+                    <p>Virginia law restricts outdoor burning from <strong>February 15 through April 30</strong>. Burning is only permitted between 4 PM and midnight during this period.</p>
+                    <ul>
+                        <li>Clarke residents call: 540-955-1234</li>
+                        <li>Loudoun residents call: 703-777-0637</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>BLUE RIDGE MOUNTAIN CIVIC ASSOCIATION</p>
+            <p>Follow Us on Social Media</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 by Blue Ridge Mountain Civic Association. Proudly created for the community.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

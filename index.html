@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Ridge Mountain Civic Association</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/logo.png" alt="BRMCA Logo" style="height: 60px;"></a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT US</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html">CONTACT US</a>
+                    </div>
+                </li>
+                <li><a href="news.html">NEWS & EVENTS</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="firewise.html">FIREWISE</a></li>
+                <li class="dropdown">
+                    <a href="membership.html">MEMBERSHIP</a>
+                    <div class="dropdown-content">
+                        <a href="get-involved.html">GET INVOLVED</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="resources.html">RESOURCES</a>
+                    <div class="dropdown-content">
+                        <a href="conservation.html">CONSERVATION</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">BLOG</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to the Mountain</h2>
+            </div>
+        </section>
+
+        <!-- Slider Section (Raven Rocks Feature) -->
+        <section class="slider-container">
+            <div class="slider">
+                <div class="slide fade">
+                    <img src="assets/images/raven-rocks-1.jpg" alt="Raven Rocks View 1">
+                </div>
+                <div class="slide fade">
+                    <img src="assets/images/raven-rocks-2.jpg" alt="Raven Rocks View 2">
+                </div>
+                <div class="slide fade">
+                    <img src="assets/images/raven-rocks-3.jpg" alt="Raven Rocks View 3">
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </section>
+
+        <!-- Welcome Message -->
+        <section class="welcome-section section-padding">
+            <div class="container">
+                <h3>WELCOME TO THE MOUNTAIN</h3>
+                <p>On behalf of the BRMCA officers and directors, we welcome you to the mountain and look forward to meeting you. We believe our community is a special one, filled with the wonder and beauty that is the Blue Ridge.</p>
+                <p>Whether you are enjoying the vibrant hues of a mountain sunset, the peaceful woodland surroundings, or hiking along the Appalachian Trail - this is an extraordinary place to call home. </p>
+                <p>The Blue Ridge Mountain Civic Association is centered on safeguarding the natural environment of our ridge and preserving its vital resources. We work with like-minded groups to protect the mountain's character and foster a sense of belonging among all residents.</p>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <blockquote>
+                    "There is a serene and settled majesty to woodland scenery that enters into the soul and delights and elevates it, and fills it with noble inclinations."
+                    <cite>— Washington Irving</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section class="announcements-section section-padding">
+            <div class="container">
+                <h3>Announcements</h3>
+                <div class="announcement-card">
+                    <h4>Annual Pot Luck Picnic</h4>
+                    <p>BRMCA is hosting its annual pot luck picnic for residents along 601 and connected roads!</p>
+                    <p><strong>When:</strong> May 16, between 1:00 PM and 3:00 PM</p>
+                    <p><strong>Where:</strong> 20282 Blue Ridge Mountain Rd, Paris, VA</p>
+                    <p><strong>RSVP:</strong> Please email <a href="mailto:kllkimmer@comcast.net">kllkimmer@comcast.net</a> by May 9 and bring a dish/dessert and chairs/blankets.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>BLUE RIDGE MOUNTAIN CIVIC ASSOCIATION</p>
+            <p>Follow Us on Social Media</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 by Blue Ridge Mountain Civic Association. Proudly created for the community.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
