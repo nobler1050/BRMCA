@@ -601,14 +601,21 @@ footer {
     font-family: var(--font-heading);
 }
 
-/* Tel links — inherit parent color, underline only on hover */
-a[href^="tel"] {
+/* Tel and maps links — inherit parent color, underline only on hover */
+a[href^="tel"],
+a[href^="https://maps.google.com"] {
     color: inherit;
     text-decoration: none;
 }
 
-a[href^="tel"]:hover {
+a[href^="tel"]:hover,
+a[href^="https://maps.google.com"]:hover {
     text-decoration: underline;
+}
+
+/* address element — reset browser default italic so classes control style */
+address {
+    font-style: normal;
 }
 
 /* Resources page */
