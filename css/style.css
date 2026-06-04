@@ -947,3 +947,48 @@ address {
   font-weight: 600;
   margin-right: 0.5rem;
 }
+
+/* Firewise accordion */
+details.plan-section {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  background: var(--color-white);
+}
+
+details.plan-section summary {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+details.plan-section summary::-webkit-details-marker {
+  display: none;
+}
+
+details.plan-section summary::after {
+  content: "▸";
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  transition: transform 0.2s;
+}
+
+details.plan-section[open] summary::after {
+  transform: rotate(90deg);
+}
+
+details.plan-section > div {
+  padding: 0 1.25rem 1.25rem;
+}
+
+details.plan-section p {
+  margin-bottom: 0.75rem;
+}
