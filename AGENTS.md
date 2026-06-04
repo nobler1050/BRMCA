@@ -56,6 +56,7 @@ python3 -m http.server 8000
 ## Development Conventions
 
 - **No inline styles** — all styles belong in `css/style.css`
+- **Formatting** — use Prettier for consistent code style (`npm run format`)
 - **CSS variables** — use `var(--color-*)` and `var(--font-*)` for colors and typography
 - **Naming** — kebab-case for filenames and CSS class names
 - **Nav changes** — edit only `NAV_LINKS` in `js/main.js`; never duplicate nav markup in HTML
