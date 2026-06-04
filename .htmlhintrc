@@ -19,7 +19,7 @@
   "tag-self-close": false,
   "tagname-lowercase": true,
   "tagname-specialchars": true,
-  "empty-tag-not-self-closed": true,
+  "empty-tag-not-self-closed": false,
   "src-not-empty": true,
   "href-abs-or-rel": false,
   "alt-require": true,

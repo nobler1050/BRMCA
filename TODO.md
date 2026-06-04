@@ -18,7 +18,7 @@
 
 **Still to discuss:** two remaining oddities in the IA:
 
-1. **Conservation under Resources** — feels arbitrary. Conservation is central to BRMCA's mission statement (*"safeguarding the natural environment of the Blue Ridge"*), so it probably deserves its own top-level slot rather than being treated as a sub-topic of practical resources (which is more about phone numbers, recycling, government contacts, etc.). Suggested move: promote Conservation to top-level.
+1. **Conservation under Resources** — feels arbitrary. Conservation is central to BRMCA's mission statement (_"safeguarding the natural environment of the Blue Ridge"_), so it probably deserves its own top-level slot rather than being treated as a sub-topic of practical resources (which is more about phone numbers, recycling, government contacts, etc.). Suggested move: promote Conservation to top-level.
 
 2. **Get Involved under Membership** — these two pages are genuinely related (both are "how to participate"), so the dropdown actually makes sense here. Could keep it as-is, OR if we want to flatten the whole nav, fold Get Involved's content into Membership as one page and drop the dropdown.
 
@@ -70,6 +70,7 @@ Decide which approach fits the actual editor's comfort level. Start with JSON if
 ## Done in earlier session passes
 
 For reference — these were completed during the migration:
+
 - Shared header/footer via `js/main.js` (single source of truth)
 - Slider buttons accessible, auto-advance guarded
 - Page-specific `<style>` blocks consolidated into `css/style.css`

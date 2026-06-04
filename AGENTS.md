@@ -1,14 +1,17 @@
 # Blue Ridge Mountain Civic Association (BRMCA) — Static Site
 
 ## Project Overview
+
 A responsive static website for the Blue Ridge Mountain Civic Association, a 501(c)(4) civic organization in Clarke and Loudoun Counties, Virginia. Migrated from Wix to GitHub Pages to eliminate hosting costs.
 
 ### Technologies
+
 - **HTML5** — semantic markup for all pages
 - **CSS3** — custom styling via CSS variables, Flexbox, Grid, and media queries
 - **JavaScript (Vanilla)** — shared header/footer injection and mobile menu toggle
 
 ### Architecture
+
 The site uses a flat structure: individual HTML files per page, one shared stylesheet, and one shared JS file.
 
 - **Header/Footer** — injected by `js/main.js` at runtime; edit `NAV_LINKS` in that file to update navigation on every page simultaneously
@@ -28,18 +31,18 @@ assets/
 
 ## Pages
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Homepage — hero, welcome text, Irving quote |
-| `about.html` | Mission, org structure, bylaws download |
-| `news.html` | Dated news headlines linking to PDFs |
-| `history.html` | Bear's Den Historic District, TWA crash, Mountain Lore book |
-| `conservation.html` | Conservation mission and partner organizations |
-| `firewise.html` | Wildfire evacuation plan and Firewise program |
-| `membership.html` | Membership info and CTA |
-| `get-involved.html` | Committee volunteer opportunities |
-| `resources.html` | Emergency contacts, utilities, county services, recycling |
-| `contact.html` | Officer/director directory and contact form |
+| File                | Purpose                                                     |
+| ------------------- | ----------------------------------------------------------- |
+| `index.html`        | Homepage — hero, welcome text, Irving quote                 |
+| `about.html`        | Mission, org structure, bylaws download                     |
+| `news.html`         | Dated news headlines linking to PDFs                        |
+| `history.html`      | Bear's Den Historic District, TWA crash, Mountain Lore book |
+| `conservation.html` | Conservation mission and partner organizations              |
+| `firewise.html`     | Wildfire evacuation plan and Firewise program               |
+| `membership.html`   | Membership info and CTA                                     |
+| `get-involved.html` | Committee volunteer opportunities                           |
+| `resources.html`    | Emergency contacts, utilities, county services, recycling   |
+| `contact.html`      | Officer/director directory and contact form                 |
 
 ## Running Locally
 
@@ -67,7 +70,9 @@ python3 -m http.server 8000
    ```html
    <li>
      <span class="news-date">Month DD, YYYY</span>
-     <a href="assets/docs/YYYY-MM-DD-slug.pdf" target="_blank" rel="noopener">Headline text</a>
+     <a href="assets/docs/YYYY-MM-DD-slug.pdf" target="_blank" rel="noopener"
+       >Headline text</a
+     >
    </li>
    ```
 3. Commit and push — GitHub Pages deploys automatically

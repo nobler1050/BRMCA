@@ -8,12 +8,17 @@
     "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
     "lint:html": "htmlhint \"*.html\"",
     "lint:css": "stylelint \"css/*.css\"",
-    "lint:js": "eslint \"js/*.js\""
+    "lint:js": "eslint \"js/*.js\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "eslint": "^9.0.0",
     "htmlhint": "^1.1.4",
     "stylelint": "^16.0.0",
     "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "pretier": "^0.0.1"
   }
 }
