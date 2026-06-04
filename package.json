@@ -1,0 +1,19 @@
+{
+  "name": "brmca-website",
+  "version": "1.0.0",
+  "description": "Blue Ridge Mountain Civic Association static site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "htmlhint \"*.html\"",
+    "lint:css": "stylelint \"css/*.css\"",
+    "lint:js": "eslint \"js/*.js\""
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

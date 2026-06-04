@@ -12,6 +12,19 @@ BRMCA was founded in 2003 to safeguard the natural environment of the Blue Ridge
 
 See [AGENTS.md](AGENTS.md) for architecture details, conventions, and instructions for common tasks like adding news items.
 
+### Linting
+
+Requires [Node.js](https://nodejs.org/) v18+.
+
+```bash
+npm install       # install linters (one-time setup)
+
+npm run lint      # run all linters
+npm run lint:html # HTML only
+npm run lint:css  # CSS only
+npm run lint:js   # JS only
+```
+
 ## Contact
 
 For site issues, contact the BRMCA webmaster or open a GitHub issue.

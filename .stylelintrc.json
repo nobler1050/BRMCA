@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "media-feature-range-notation": null,
+    "selector-class-pattern": null,
+    "value-keyword-case": null,
+    "color-hex-length": null,
+    "no-descending-specificity": null
+  }
+}
