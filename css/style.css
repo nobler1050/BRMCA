@@ -574,6 +574,43 @@ footer {
   margin-bottom: 0.5rem;
 }
 
+/* Conservation partner cards */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.partner-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.partner-card-logo {
+  height: 56px;
+  max-width: 180px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.partner-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: var(--text-md);
+}
+
+.partner-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  flex: 1;
+}
+
 .about-documents .submit-btn {
   margin-top: 1rem;
   display: inline-block;
