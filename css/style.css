@@ -165,7 +165,7 @@ nav ul li a.active {
 
 /* Hero Section */
 .hero {
-  height: 60vh;
+  height: 40vh;
   background-color: var(--color-primary);
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -607,6 +607,13 @@ footer {
   background: var(--color-bg-tint);
   padding: var(--space-6);
   border-radius: var(--radius-md);
+}
+
+.payment-or {
+  text-align: center;
+  color: var(--color-text-light);
+  margin: var(--space-4) 0;
+  font-style: italic;
 }
 
 .mailing-address {
