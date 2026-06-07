@@ -48,6 +48,10 @@
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.07);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
 
+  /* Borders */
+  --color-border: #e0e0e0;
+  --color-border-light: #eeeeee;
+
   /* Prose width */
   --prose-width: 68ch;
 }
@@ -182,7 +186,6 @@ nav ul li a.active {
 .hero-content h1 {
   font-family: var(--font-heading);
   font-size: var(--text-2xl);
-  margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -245,11 +248,8 @@ nav ul li a.active {
 
 /* Announcements */
 .announcement-card {
-  background: var(--color-white);
-  padding: var(--space-8);
   border-left: 5px solid var(--color-accent);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-sm);
+  padding: var(--space-8);
 }
 
 .announcement-card h2 {
@@ -361,7 +361,7 @@ footer {
 }
 
 /* Buttons */
-.submit-btn {
+.btn {
   background-color: var(--color-secondary);
   color: var(--color-white);
   padding: 1rem 2rem;
@@ -375,17 +375,17 @@ footer {
   transition: background 0.3s;
 }
 
-.submit-btn:hover {
+.btn:hover {
   background-color: var(--color-secondary-dark);
 }
 
-.submit-btn--outline {
+.btn--outline {
   background-color: transparent;
   color: var(--color-secondary);
   border: 2px solid var(--color-secondary);
 }
 
-.submit-btn--outline:hover {
+.btn--outline:hover {
   background-color: var(--color-secondary);
   color: var(--color-white);
 }
@@ -440,7 +440,7 @@ footer {
   max-width: none;
 }
 
-.contact-form .submit-btn {
+.contact-form .btn {
   width: 100%;
 }
 
@@ -458,26 +458,31 @@ footer {
 .form-group textarea {
   width: 100%;
   padding: var(--space-3);
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-family: inherit;
 }
 
-/* Card grids (get-involved, resources) */
-.involve-grid,
-.resource-grid {
+/* Card grids (get-involved) */
+.involve-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.involve-card,
-.resource-card {
+.card {
   background: var(--color-white);
   padding: var(--space-6);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+}
+
+.card-heading {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .involve-card {
@@ -485,50 +490,38 @@ footer {
 }
 
 .involve-card h2 {
+  font-family: var(--font-heading);
   color: var(--color-primary);
   margin-bottom: 1rem;
   font-size: var(--text-md);
-}
-
-.resource-card h2 {
-  color: var(--color-secondary);
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--color-bg-light);
-  padding-bottom: 0.5rem;
-  font-size: var(--text-md);
-}
-
-.resource-card ul {
-  list-style: none;
-}
-
-.resource-card li {
-  margin-bottom: 0.5rem;
-}
-
-.resource-card strong {
-  color: var(--color-primary);
 }
 
 /* Inner page title h1 */
-.section-padding .container > h1 {
+.page-title {
   font-family: var(--font-heading);
   color: var(--color-primary);
   font-size: var(--text-xl);
   margin-bottom: var(--space-8);
+  text-align: center;
+  position: relative;
+  padding-bottom: var(--space-6);
 }
 
-.page-title {
-  text-align: center;
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-pill);
 }
 
 /* About page */
 .about-mission {
   margin-bottom: 2rem;
-}
-
-.about-mission h2 {
-  margin-bottom: 1rem;
 }
 
 .about-quote {
@@ -583,10 +576,6 @@ footer {
 }
 
 .partner-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -611,21 +600,14 @@ footer {
   flex: 1;
 }
 
-.about-documents .submit-btn {
+.about-documents .btn {
   margin-top: 1rem;
-  display: inline-block;
 }
 
 .content-block--highlight {
   background: var(--color-bg-light);
   padding: var(--space-8);
   border-radius: var(--radius-md);
-}
-
-.content-block--ruled {
-  border-top: 1px solid #ddd;
-  padding-top: var(--space-8);
-  margin-top: var(--space-12);
 }
 
 .note {
@@ -658,6 +640,11 @@ footer {
   margin-bottom: 2.5rem;
 }
 
+.mailing-address p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mt-3 {
   margin-top: 3rem;
 }
@@ -670,12 +657,8 @@ footer {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-  background: var(--color-white);
-  border: 1px solid #e0e0e0;
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
+  border: 1px solid var(--color-border);
   margin-top: var(--space-12);
-  box-shadow: var(--shadow-sm);
 }
 
 .publication-card img {
@@ -753,18 +736,10 @@ address {
   background-color: var(--color-bg-light);
 }
 
-.resources-section-title {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-6);
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-secondary);
+.section-padding--compact {
+  padding: var(--space-12) 0 0 0;
 }
 
-.resources-section-title--emergency {
-  border-bottom-color: var(--color-accent);
-}
 
 /* Emergency cards */
 .emergency-grid {
@@ -774,10 +749,6 @@ address {
 }
 
 .emergency-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
   border-top: 4px solid var(--color-accent);
   display: flex;
   flex-direction: column;
@@ -785,11 +756,7 @@ address {
 }
 
 .emergency-card h3 {
-  color: var(--color-primary);
   font-size: 1rem;
-  font-family: var(--font-heading);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
 }
 
 .card-body {
@@ -863,20 +830,9 @@ address {
   gap: 1.5rem;
 }
 
-.directory-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
-}
-
 .directory-card h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
   font-size: 1rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
 }
 
 .directory-list {
@@ -889,7 +845,7 @@ address {
   justify-content: space-between;
   align-items: baseline;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-border-light);
   gap: 1rem;
 }
 
@@ -925,10 +881,6 @@ address {
 }
 
 .government-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
   border-left: 4px solid var(--color-secondary);
   display: flex;
   flex-direction: column;
@@ -936,26 +888,12 @@ address {
 }
 
 .government-card h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
   font-size: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
 }
 
 .government-card p {
   font-size: var(--text-sm);
   flex: 1;
-}
-
-.gov-address {
-  color: var(--color-text-light);
-  font-style: italic;
-}
-
-.gov-phone {
-  font-weight: 700;
-  color: var(--color-primary);
 }
 
 /* Callout rows (Mountain Rules section) */
@@ -991,21 +929,13 @@ address {
 }
 
 .sub-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .sub-card h4 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
   font-size: var(--text-base);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
 }
 
 .sub-card p {
@@ -1024,21 +954,13 @@ address {
 }
 
 .neighbor-card {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .neighbor-card h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
   font-size: var(--text-base);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
 }
 
 .neighbor-card p {
@@ -1054,7 +976,7 @@ address {
 
 .news-list li {
   padding: 0.75rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .news-list li:last-child {
@@ -1071,7 +993,7 @@ address {
 
 /* Firewise accordion */
 details.plan-section {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-3);
   background: var(--color-white);
@@ -1115,12 +1037,24 @@ details.plan-section p {
 }
 
 /* Welcome heading (index.html) */
-.welcome-heading {
+.section-title {
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   color: var(--color-primary);
   margin-bottom: var(--space-6);
+}
+
+.section-title--centered {
   text-align: center;
+}
+
+.section-title--ruled {
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-secondary);
+}
+
+.section-title--ruled-emergency {
+  border-bottom-color: var(--color-accent);
 }
 
 /* Mobile container padding */
