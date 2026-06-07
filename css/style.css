@@ -619,6 +619,10 @@ footer {
 .cta-block {
   margin-top: var(--space-12);
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
 }
 
 .event-details {
