@@ -87,7 +87,7 @@ header {
 }
 
 .logo img {
-  height: 90px;
+  height: 120px;
   display: block;
 }
 
@@ -111,12 +111,6 @@ header {
   font-size: var(--text-sm);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-}
-
-.logo-est {
-  font-size: var(--text-xs);
-  color: var(--color-text-light);
-  letter-spacing: 2px;
 }
 
 nav ul {

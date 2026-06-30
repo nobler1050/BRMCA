@@ -48,7 +48,6 @@ function renderHeader() {
                 <div class="logo-text">
                     <span>BLUE RIDGE MOUNTAIN</span>
                     <span>CIVIC ASSOCIATION</span>
-                    <span class="logo-est">EST. 2003</span>
                 </div>
             </a>
         </div>
