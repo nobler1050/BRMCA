@@ -1,18 +1,39 @@
 const NAV_LINKS = [
   { href: "index.html", label: "HOME" },
-  { href: "about.html", label: "ABOUT US" },
-  { href: "news.html", label: "NEWS &amp; EVENTS" },
-  { href: "history.html", label: "HISTORY" },
-  { href: "firewise.html", label: "FIREWISE" },
   {
     href: "membership.html",
     label: "MEMBERSHIP",
-    children: [{ href: "get-involved.html", label: "GET INVOLVED" }],
+    children: [
+      { href: "membership.html", label: "JOIN" },
+      { href: "activities.html", label: "ACTIVITIES" },
+      { href: "get-involved.html", label: "GET INVOLVED" },
+      { href: "donate.html", label: "DONATE" },
+    ],
+  },
+  {
+    href: "firewise.html",
+    label: "FIRE SAFETY",
+    children: [
+      { href: "firewise.html", label: "FIREWISE" },
+      { href: "evacuation.html", label: "EVACUATION" },
+    ],
   },
   {
     href: "resources.html",
     label: "RESOURCES",
-    children: [{ href: "conservation.html", label: "CONSERVATION" }],
+    children: [
+      { href: "resources.html", label: "KEY INFO" },
+      { href: "conservation.html", label: "CONSERVATION" },
+    ],
+  },
+  {
+    href: "about.html",
+    label: "ABOUT",
+    children: [
+      { href: "about.html", label: "ABOUT BRMCA" },
+      { href: "sponsors.html", label: "SPONSORS" },
+      { href: "history.html", label: "HISTORY" },
+    ],
   },
   { href: "contact.html", label: "CONTACT US" },
 ];
@@ -24,14 +45,16 @@ function currentPage() {
 
 function buildNavMarkup() {
   const here = currentPage();
-  const activeAttr = (href) => (href === here ? ' class="active"' : "");
   return NAV_LINKS.map((item) => {
-    const top = `<a href="${item.href}"${activeAttr(item.href)}>${item.label}</a>`;
+    const childMatch =
+      item.children && item.children.some((c) => c.href === here);
+    const parentActive = item.href === here || childMatch;
+    const top = `<a href="${item.href}"${parentActive ? ' class="active"' : ""}>${item.label}</a>`;
     if (!item.children) {
       return `<li>${top}</li>`;
     }
     const children = item.children
-      .map((c) => `<a href="${c.href}"${activeAttr(c.href)}>${c.label}</a>`)
+      .map((c) => `<a href="${c.href}">${c.label}</a>`)
       .join("");
     return `<li class="dropdown">${top}<div class="dropdown-content">${children}</div></li>`;
   }).join("");

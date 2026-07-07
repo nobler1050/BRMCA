@@ -34,41 +34,28 @@
               <div class="content-block">
                 <h2>Officers</h2>
                 <ul>
-                  <li><strong>President:</strong> Paz Andre</li>
-                  <li><strong>Vice President:</strong> Scott Seeberger</li>
+                  <li><strong>Acting President:</strong> Mick Newman</li>
+                  <li><strong>Vice President:</strong> Vacant</li>
                   <li><strong>Treasurer:</strong> Andrew Marusich</li>
                   <li><strong>Secretary:</strong> Lori De Hart</li>
                 </ul>
               </div>
 
               <div class="content-block">
-                <h2>Directors</h2>
+                <h2>Committees and Directors</h2>
                 <ul>
-                  <li>Kim Kennedy</li>
-                  <li>Kim Larson</li>
-                  <li>Kristen Marusich</li>
-                  <li>Mick Newman</li>
-                  <li>Carol Weare</li>
-                </ul>
-              </div>
-
-              <div class="content-block">
-                <h2>Committees</h2>
-                <ul>
-                  <li>Google Groups / Newsletter</li>
-                  <li>Historical</li>
-                  <li>New Resident Welcome</li>
+                  <li><strong>Technology:</strong> Richard Noble</li>
+                  <li><strong>Historical:</strong> Casey Craven</li>
+                  <li><strong>Communications:</strong> Roger Friedman</li>
+                  <li><strong>Land Use/Commercialization:</strong> Vacant</li>
+                  <li><strong>County Planning:</strong> Vacant</li>
                   <li>
-                    Road Clean-up &mdash;
-                    <a href="mailto:theandraes5@gmail.com">Paz Andre</a>
+                    <strong>Firewise and Preparedness:</strong> Mick Newman
                   </li>
-                  <li>Social</li>
-                  <li>Website / Facebook</li>
+                  <li><strong>Membership:</strong> Vacant</li>
+                  <li><strong>Adopt-a-Highway:</strong> Vacant</li>
+                  <li><strong>Social:</strong> Vacant</li>
                 </ul>
-                <p class="note">
-                  Firewise brush-pickup signup:
-                  <a href="mailto:mick@mandjnewman.com">Mick Newman</a>
-                </p>
               </div>
             </div>
 
@@ -78,6 +65,12 @@
                 method="POST"
                 class="contact-form"
               >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Contact Form Submission"
+                />
+                <input type="hidden" name="Form" value="Contact Form" />
                 <h2>Send Us a Message</h2>
                 <p>
                   Have a question or want to get involved? Send us a message
@@ -86,11 +79,23 @@
 
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" id="name" name="name" required />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
