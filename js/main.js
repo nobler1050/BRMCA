@@ -60,6 +60,17 @@ function buildNavMarkup() {
   }).join("");
 }
 
+function ensureSkipLink() {
+  const main = document.querySelector("main");
+  if (main && !main.id) main.id = "main-content";
+
+  const skip = document.createElement("a");
+  skip.href = "#main-content";
+  skip.className = "skip-link";
+  skip.textContent = "Skip to main content";
+  document.body.prepend(skip);
+}
+
 function renderHeader() {
   const header = document.querySelector("header");
   if (!header) return;
@@ -67,7 +78,7 @@ function renderHeader() {
   header.innerHTML = `
         <div class="logo">
             <a href="index.html" class="logo-link">
-                <img src="assets/images/logo.png" alt="BRMCA Logo">
+                <img src="assets/images/logo.png" alt="BRMCA Logo" width="1145" height="1155">
                 <div class="logo-text">
                     <span>BLUE RIDGE MOUNTAIN</span>
                     <span>CIVIC ASSOCIATION</span>
@@ -86,9 +97,40 @@ function renderHeader() {
 
   const toggle = header.querySelector(".menu-toggle");
   const nav = header.querySelector("#main-nav");
+
+  const closeNav = () => {
+    nav.classList.remove("active");
+    nav.style.maxHeight = "";
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  };
+
+  const openNav = () => {
+    nav.classList.add("active");
+    nav.style.maxHeight = `${window.innerHeight - header.getBoundingClientRect().bottom}px`;
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  };
+
   toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("active");
-    toggle.setAttribute("aria-expanded", String(open));
+    if (nav.classList.contains("active")) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("active")) return;
+    if (nav.contains(event.target) || toggle.contains(event.target)) return;
+    closeNav();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("active")) {
+      closeNav();
+      toggle.focus();
+    }
   });
 }
 
@@ -99,7 +141,7 @@ function renderFooter() {
   footer.innerHTML = `
         <div class="footer-content">
             <p>BLUE RIDGE MOUNTAIN CIVIC ASSOCIATION</p>
-            <p>Find us on <a href="https://www.facebook.com/groups/2898360027109749" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+            <p>Find us on <a href="https://www.facebook.com/groups/2898360027109749" target="_blank" rel="noopener">Facebook</a></p>
         </div>
         <div class="footer-bottom">
             <p>&copy; ${year} by Blue Ridge Mountain Civic Association. Proudly created for the community.</p>
@@ -107,5 +149,6 @@ function renderFooter() {
     `;
 }
 
+ensureSkipLink();
 renderHeader();
 renderFooter();
