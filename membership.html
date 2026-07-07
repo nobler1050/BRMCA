@@ -104,23 +104,34 @@
                   free and easy! (Note: Please submit an entry for each adult
                   member of your household.)
                 </p>
-                <p class="form-required-note">
-                  Fields marked <span class="required-mark">*</span> are
-                  required.
-                </p>
 
                 <div class="form-group">
-                  <label for="name"
-                    >Name
+                  <label for="first_name"
+                    >First Name
                     <span class="required-mark" aria-hidden="true"
                       >*</span
                     ></label
                   >
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    autocomplete="name"
+                    id="first_name"
+                    name="first_name"
+                    autocomplete="given-name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="last_name"
+                    >Last Name
+                    <span class="required-mark" aria-hidden="true"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    autocomplete="family-name"
                     required
                   />
                 </div>
@@ -141,7 +152,7 @@
                 </div>
                 <div class="form-group">
                   <label for="address"
-                    >Mailing Address
+                    >Street Address
                     <span class="required-mark" aria-hidden="true"
                       >*</span
                     ></label
@@ -150,7 +161,53 @@
                     type="text"
                     id="address"
                     name="address"
-                    autocomplete="street-address"
+                    autocomplete="address-line1"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="city"
+                    >City
+                    <span class="required-mark" aria-hidden="true"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    autocomplete="address-level2"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="state"
+                    >State
+                    <span class="required-mark" aria-hidden="true"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    autocomplete="address-level1"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="zip"
+                    >ZIP Code
+                    <span class="required-mark" aria-hidden="true"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="zip"
+                    name="zip"
+                    autocomplete="postal-code"
+                    inputmode="numeric"
                     required
                   />
                 </div>
@@ -202,6 +259,10 @@
                     </label>
                   </fieldset>
                 </div>
+                <p class="form-required-note">
+                  Fields marked <span class="required-mark">*</span> are
+                  required.
+                </p>
                 <button type="submit" class="btn">Join BRMCA</button>
               </form>
             </div>

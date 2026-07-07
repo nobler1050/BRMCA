@@ -58,8 +58,11 @@
   --color-border: #8a8a8a;
   --color-border-light: #eeeeee;
 
-  /* Prose width */
-  --prose-width: 68ch;
+  /* Prose width — fixed unit, not ch: ch is font-relative, and this value
+     is shared by elements set in different fonts (heading serif vs body
+     sans), so ch would resolve to different pixel widths and break the
+     left-edge alignment between centered headings and body text. */
+  --prose-width: 44rem;
 }
 
 html {
@@ -449,11 +452,6 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-.contact-message > p {
-  margin-bottom: 1.5rem;
-  max-width: var(--prose-width);
-}
-
 @media (max-width: 768px) {
   .contact-layout {
     grid-template-columns: 1fr;
@@ -606,10 +604,8 @@ footer {
   color: var(--color-primary);
   border-left: 5px solid var(--color-secondary);
   padding-left: var(--space-5);
-  margin: 0;
   margin-top: var(--space-6);
   line-height: 1.6;
-  max-width: 60ch;
 }
 
 .about-quote cite {
@@ -624,23 +620,40 @@ footer {
   margin-bottom: var(--space-8);
 }
 
+/* Every direct child of .content-block (heading, paragraph, list,
+   blockquote, address, ...) is centered at the readable prose width by
+   default — one rule, so nothing placed inside a .content-block can be
+   forgotten and silently fall back to full container width. */
+.content-block > * {
+  max-width: var(--prose-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .content-block h2 {
   font-family: var(--font-heading);
   color: var(--color-primary);
   margin-bottom: var(--space-4);
   font-size: var(--text-lg);
-  max-width: var(--prose-width);
 }
 
 .content-block p {
   margin-bottom: var(--space-3);
-  max-width: var(--prose-width);
+}
+
+/* For a heading/paragraph that leads into a full-width grid: keep the
+   text at the readable prose width, but left-align it to the grid's
+   edge (grid has no left margin of its own) instead of centering it
+   independently at a different width. */
+.content-block--align-grid h2,
+.content-block--align-grid p {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .content-list {
   padding-left: 1.5rem;
   margin-top: 0.75rem;
-  max-width: var(--prose-width);
 }
 
 .content-list li {
@@ -689,6 +702,9 @@ footer {
   align-items: center;
   gap: var(--space-8);
   margin-bottom: var(--space-8);
+  max-width: var(--prose-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sponsor-intro p {
@@ -776,6 +792,9 @@ footer {
   padding: var(--space-5) var(--space-6);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-top: var(--space-12);
+  max-width: var(--prose-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .did-you-know::before {
@@ -1051,6 +1070,8 @@ address {
 }
 
 .news-list li {
+  display: flex;
+  gap: 0.5rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border-light);
 }
@@ -1060,11 +1081,15 @@ address {
 }
 
 .news-date {
-  display: inline-block;
+  flex-shrink: 0;
   min-width: 9rem;
   color: var(--color-secondary);
   font-weight: 600;
-  margin-right: 0.5rem;
+}
+
+.news-list li > a,
+.news-list li > .news-headline {
+  flex: 1;
 }
 
 /* Welcome heading (index.html) */
@@ -1088,9 +1113,15 @@ address {
   border-bottom-color: var(--color-accent);
 }
 
-/* Mobile container padding */
+/* Narrow mobile: reclaim header space so the logo wordmark can't
+   collide with the hamburger button; the logo image already carries
+   the association name, so the text label is redundant here. */
 @media (max-width: 480px) {
   .container {
     padding: 0 var(--space-4);
+  }
+
+  .logo-text {
+    display: none;
   }
 }
