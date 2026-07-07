@@ -499,6 +499,14 @@ footer {
   margin-bottom: var(--space-4);
 }
 
+.form-error-message {
+  display: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {

@@ -149,6 +149,47 @@ function renderFooter() {
     `;
 }
 
+function enableAjaxFormSubmit() {
+  document.querySelectorAll("form.contact-form").forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      let errorEl = form.querySelector(".form-error-message");
+      if (!errorEl) {
+        errorEl = document.createElement("p");
+        errorEl.className = "form-error-message";
+        submitBtn.insertAdjacentElement("beforebegin", errorEl);
+      }
+      errorEl.textContent = "";
+      errorEl.style.display = "none";
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) throw new Error("Form submission failed");
+
+        window.location.href = "thank-you.html";
+      } catch {
+        errorEl.textContent =
+          "Something went wrong sending this — please try again, or email us directly.";
+        errorEl.style.display = "block";
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  });
+}
+
 ensureSkipLink();
 renderHeader();
 renderFooter();
+enableAjaxFormSubmit();
