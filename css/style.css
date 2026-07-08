@@ -956,6 +956,16 @@ address {
   border-bottom: none;
 }
 
+/* When the entry has both a clickable address and a phone number,
+   stack them instead of sharing a row — otherwise the address fights
+   the phone number's fixed width and wraps heavily on narrow cards. */
+.directory-list li:has(.dir-name a) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+
 .dir-name {
   color: var(--color-text);
   font-size: var(--text-sm);
