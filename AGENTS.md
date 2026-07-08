@@ -15,7 +15,9 @@ A responsive static website for the Blue Ridge Mountain Civic Association, a 501
 The site uses a flat structure: individual HTML files per page, one shared stylesheet, and one shared JS file.
 
 - **Header/Footer** — injected by `js/main.js` at runtime; edit `NAV_LINKS` in that file to update navigation on every page simultaneously
-- **Navigation** — defined once in `NAV_LINKS`; supports top-level items and one level of dropdowns; responsive hamburger menu below 992px
+- **Navigation** — defined once in `NAV_LINKS`; supports top-level items and one level of dropdowns; responsive hamburger menu below 1150px
+- **Forms** — contact, membership, and Firewise forms post to Formspree; `js/main.js` submits them via fetch and redirects to `thank-you.html`
+- **Fonts** — Inter and Source Serif 4 are self-hosted under `assets/fonts/` via `@font-face` in `css/style.css` (no third-party requests)
 - **PDF assets** — news documents and bylaws are self-hosted under `assets/docs/` using the naming convention `YYYY-MM-DD-slug.pdf`
 
 ## Directory Structure
@@ -25,7 +27,8 @@ The site uses a flat structure: individual HTML files per page, one shared style
 css/style.css       Global stylesheet — all styles live here, no inline styles
 js/main.js          Shared header, footer, nav injection
 assets/
-  images/           Logo, hero image, book cover, Raven Rocks photos
+  images/           Logo, hero image, book cover, partner/sponsor logos
+  fonts/            Self-hosted woff2 fonts (Inter, Source Serif 4)
   docs/             Self-hosted PDFs (news items, bylaws)
 ```
 
@@ -33,16 +36,20 @@ assets/
 
 | File                | Purpose                                                     |
 | ------------------- | ----------------------------------------------------------- |
-| `index.html`        | Homepage — hero, welcome text, Irving quote                 |
+| `index.html`        | Homepage — hero, welcome text, CTA buttons                  |
 | `about.html`        | Mission, org structure, bylaws download                     |
-| `news.html`         | Dated news headlines linking to PDFs                        |
+| `activities.html`   | Dated news headlines linking to PDFs                        |
 | `history.html`      | Bear's Den Historic District, TWA crash, Mountain Lore book |
 | `conservation.html` | Conservation mission and partner organizations              |
-| `firewise.html`     | Wildfire evacuation plan and Firewise program               |
-| `membership.html`   | Membership info and CTA                                     |
+| `firewise.html`     | Firewise program and hours/sticks reporting form            |
+| `evacuation.html`   | Wildfire evacuation plan                                    |
+| `membership.html`   | Membership info and sign-up form                            |
 | `get-involved.html` | Committee volunteer opportunities                           |
+| `donate.html`       | Donation info (mail and Venmo)                              |
+| `sponsors.html`     | Sponsor recognition                                         |
 | `resources.html`    | Emergency contacts, utilities, county services, recycling   |
 | `contact.html`      | Officer/director directory and contact form                 |
+| `thank-you.html`    | Post-form-submission confirmation (noindex)                 |
 
 ## Running Locally
 
@@ -67,7 +74,7 @@ python3 -m http.server 8000
 ## Adding a News Item
 
 1. Copy the linked PDF to `assets/docs/YYYY-MM-DD-slug.pdf`
-2. Add a `<li>` to the `<ul class="news-list">` in `news.html`:
+2. Add a `<li>` to the `<ul class="news-list">` in `activities.html`:
    ```html
    <li>
      <span class="news-date">Month DD, YYYY</span>

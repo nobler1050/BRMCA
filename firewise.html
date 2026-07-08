@@ -26,12 +26,6 @@
       property="og:url"
       content="https://nobler1050.github.io/BRMCA/firewise.html"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -113,7 +107,7 @@
                 </p>
 
                 <div class="form-group">
-                  <label for="first_name">First Name</label>
+                  <label for="first_name" class="required">First Name</label>
                   <input
                     type="text"
                     id="first_name"
@@ -158,12 +152,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="location"
-                    >Location of Piles
-                    <span class="required-mark" aria-hidden="true"
-                      >*</span
-                    ></label
-                  >
+                  <label for="location">Location of Piles</label>
                   <select id="location" name="location" required>
                     <option value="" disabled selected>Choose an option</option>
                     <option value="Section 1: Route 7 to Bears Den (.4 Mile)">
@@ -217,12 +206,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="piles"
-                    >Number of Piles
-                    <span class="required-mark" aria-hidden="true"
-                      >*</span
-                    ></label
-                  >
+                  <label for="piles" class="required">Number of Piles</label>
                   <input
                     type="number"
                     id="piles"
@@ -232,11 +216,8 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="hours"
-                    >Hours Spent on FireWise Activities
-                    <span class="required-mark" aria-hidden="true"
-                      >*</span
-                    ></label
+                  <label for="hours" class="required"
+                    >Hours Spent on FireWise Activities</label
                   >
                   <input
                     type="number"

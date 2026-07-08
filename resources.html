@@ -26,12 +26,6 @@
       property="og:url"
       content="https://nobler1050.github.io/BRMCA/resources.html"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -52,9 +46,9 @@
           >
             Emergency &amp; Outages
           </h2>
-          <div class="emergency-grid">
-            <div class="card emergency-card">
-              <h3>Dominion Power Outages</h3>
+          <div class="card-grid">
+            <div class="card card--accent-top">
+              <h3 class="card-heading">Dominion Power Outages</h3>
               <p class="card-body">
                 Call to report down lines or check power status.
               </p>
@@ -63,15 +57,15 @@
               </p>
               <a
                 href="https://www.dominionenergy.com/virginia/report-outage-or-emergency"
-                class="btn-sm btn-sm--emergency"
+                class="btn btn--sm btn--emergency"
                 target="_blank"
                 rel="noopener"
                 >Report Outage Online</a
               >
             </div>
 
-            <div class="card emergency-card">
-              <h3>NOVEC Outages</h3>
+            <div class="card card--accent-top">
+              <h3 class="card-heading">NOVEC Outages</h3>
               <p class="card-body">
                 Call to report electric outages or network issues.
               </p>
@@ -80,15 +74,15 @@
               </p>
               <a
                 href="https://www.novec.com/index.cfm"
-                class="btn-sm btn-sm--emergency"
+                class="btn btn--sm btn--emergency"
                 target="_blank"
                 rel="noopener"
                 >Report Outage Online</a
               >
             </div>
 
-            <div class="card emergency-card">
-              <h3>Virginia Dept. of Transportation</h3>
+            <div class="card card--accent-top">
+              <h3 class="card-heading">Virginia Dept. of Transportation</h3>
               <p class="card-body">
                 Report fallen trees, blocked drainage, or hazardous road
                 conditions. For Loudoun County traffic issues, use the direct
@@ -103,14 +97,14 @@
               <div class="btn-group">
                 <a
                   href="https://my.vdot.virginia.gov/"
-                  class="btn-sm btn-sm--emergency"
+                  class="btn btn--sm btn--emergency"
                   target="_blank"
                   rel="noopener"
                   >Report Road Issue</a
                 >
                 <a
                   href="https://lfportal.loudoun.gov/Forms/TrafficComplaint"
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >Loudoun Traffic Complaint</a
@@ -127,8 +121,8 @@
           <h2 class="section-title section-title--ruled">
             Essential Local Directories
           </h2>
-          <div class="directory-grid">
-            <div class="card directory-card">
+          <div class="card-grid">
+            <div class="card">
               <h3 class="card-heading">Law Enforcement &amp; Safety</h3>
               <ul class="directory-list">
                 <li>
@@ -152,7 +146,7 @@
               </ul>
             </div>
 
-            <div class="card directory-card">
+            <div class="card">
               <h3 class="card-heading">Local Schools &amp; Public Services</h3>
               <ul class="directory-list">
                 <li>
@@ -179,8 +173,8 @@
           <h2 class="section-title section-title--ruled">
             Local Government, Zoning &amp; Utilities
           </h2>
-          <div class="government-grid">
-            <div class="card government-card">
+          <div class="card-grid">
+            <div class="card card--secondary-left">
               <h3 class="card-heading">
                 Clarke County Zoning &amp; Administration
               </h3>
@@ -207,14 +201,14 @@
               </ul>
               <a
                 href="https://www.clarkecounty.gov/government/planning-zoning"
-                class="btn-sm"
+                class="btn btn--sm"
                 target="_blank"
                 rel="noopener"
                 >Clarke County Planning &amp; Zoning</a
               >
             </div>
 
-            <div class="card government-card">
+            <div class="card card--secondary-left">
               <h3 class="card-heading">
                 Loudoun County Zoning &amp; Administration
               </h3>
@@ -240,14 +234,14 @@
               </ul>
               <a
                 href="https://www.loudoun.gov/2598/Zoning"
-                class="btn-sm"
+                class="btn btn--sm"
                 target="_blank"
                 rel="noopener"
                 >Loudoun County Zoning</a
               >
             </div>
 
-            <div class="card government-card">
+            <div class="card card--secondary-left">
               <h3 class="card-heading">Report a Local Problem via LEX</h3>
               <p>
                 Loudoun Express Request (LEX) is a citizen request system for
@@ -257,28 +251,28 @@
               <div class="btn-group">
                 <a
                   href="https://www.loudoun.gov/3055/Report-an-Issue"
-                  class="btn-sm"
+                  class="btn btn--sm"
                   target="_blank"
                   rel="noopener"
                   >Launch LEX Web App</a
                 >
                 <a
                   href="https://www.loudoun.gov/DocumentCenter/View/116822/Public-user-guide?bidId="
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >User Guide</a
                 >
                 <a
                   href="https://itunes.apple.com/us/app/lex-loudoun-express-request/id983037048?mt=8"
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >App Store</a
                 >
                 <a
                   href="https://play.google.com/store/apps/details?id=com.publicstuff.loudoun_county"
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >Google Play</a
@@ -323,8 +317,8 @@
 
           <div class="callout-row">
             <h3>Local Recycling &amp; Trash Disposal</h3>
-            <div class="sub-card-grid">
-              <div class="card sub-card">
+            <div class="card-grid">
+              <div class="card">
                 <h4 class="card-heading">Western Loudoun Recycling Center</h4>
                 <p>
                   Located in Purcellville, across from Harmony Middle School.
@@ -345,13 +339,13 @@
                 </ul>
                 <a
                   href="https://www.loudoun.gov/facilities/facility/details/Western-Loudoun-Recycling-Center-155"
-                  class="btn-sm"
+                  class="btn btn--sm"
                   target="_blank"
                   rel="noopener"
                   >Western Loudoun Recycling Center</a
                 >
               </div>
-              <div class="card sub-card">
+              <div class="card">
                 <h4 class="card-heading">
                   Clarke County Quarry Rd. Convenience Center
                 </h4>
@@ -381,7 +375,7 @@
                 </p>
                 <a
                   href="https://www.clarkecounty.gov/services/trash-recycling"
-                  class="btn-sm"
+                  class="btn btn--sm"
                   target="_blank"
                   rel="noopener"
                   >Clarke County Trash &amp; Recycling</a
@@ -398,8 +392,8 @@
           <h2 class="section-title section-title--ruled">
             Mountain Neighbors &amp; Wildlife
           </h2>
-          <div class="neighbors-grid">
-            <div class="card neighbor-card">
+          <div class="card-grid card-grid--narrow">
+            <div class="card">
               <h3 class="card-heading">
                 Bear&rsquo;s Den &mdash; Appalachian Trail
               </h3>
@@ -413,14 +407,14 @@
               </p>
               <a
                 href="https://bearsdencenter.org/"
-                class="btn-sm"
+                class="btn btn--sm"
                 target="_blank"
                 rel="noopener"
                 >Visit Bear&rsquo;s Den Center</a
               >
             </div>
 
-            <div class="card neighbor-card">
+            <div class="card">
               <h3 class="card-heading">
                 Federal Emergency Management Agency (FEMA)
               </h3>
@@ -432,14 +426,14 @@
               </p>
               <a
                 href="https://www.fema.gov/"
-                class="btn-sm"
+                class="btn btn--sm"
                 target="_blank"
                 rel="noopener"
                 >FEMA Website</a
               >
             </div>
 
-            <div class="card neighbor-card">
+            <div class="card">
               <h3 class="card-heading">
                 Wildlife &amp; Conservation Resources
               </h3>
@@ -462,7 +456,7 @@
               </ul>
             </div>
 
-            <div class="card neighbor-card">
+            <div class="card">
               <h3 class="card-heading">
                 Virginia Cooperative Extension &amp; Master Gardeners
               </h3>
@@ -511,21 +505,21 @@
               <div class="btn-group">
                 <a
                   href="https://ext.vt.edu/"
-                  class="btn-sm"
+                  class="btn btn--sm"
                   target="_blank"
                   rel="noopener"
                   >VT Extension</a
                 >
                 <a
                   href="https://ext.vt.edu/lawn-garden/master-gardener.html"
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >Master Gardener Program</a
                 >
                 <a
                   href="http://loudouncountymastergardeners.org/"
-                  class="btn-sm btn-sm--outline"
+                  class="btn btn--sm btn--outline"
                   target="_blank"
                   rel="noopener"
                   >Loudoun Master Gardeners</a

@@ -45,16 +45,17 @@ function currentPage() {
 
 function buildNavMarkup() {
   const here = currentPage();
+  const link = (item, active) =>
+    `<a href="${item.href}"${active ? ' class="active"' : ""}${item.href === here ? ' aria-current="page"' : ""}>${item.label}</a>`;
   return NAV_LINKS.map((item) => {
     const childMatch =
       item.children && item.children.some((c) => c.href === here);
-    const parentActive = item.href === here || childMatch;
-    const top = `<a href="${item.href}"${parentActive ? ' class="active"' : ""}>${item.label}</a>`;
+    const top = link(item, item.href === here || childMatch);
     if (!item.children) {
       return `<li>${top}</li>`;
     }
     const children = item.children
-      .map((c) => `<a href="${c.href}">${c.label}</a>`)
+      .map((c) => link(c, c.href === here))
       .join("");
     return `<li class="dropdown">${top}<div class="dropdown-content">${children}</div></li>`;
   }).join("");
@@ -78,7 +79,7 @@ function renderHeader() {
   header.innerHTML = `
         <div class="logo">
             <a href="index.html" class="logo-link">
-                <img src="assets/images/logo.png" alt="BRMCA Logo" width="1145" height="1155">
+                <img src="assets/images/logo-small.png" alt="BRMCA Logo" width="238" height="240">
                 <div class="logo-text">
                     <span>BLUE RIDGE MOUNTAIN</span>
                     <span>CIVIC ASSOCIATION</span>

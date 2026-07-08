@@ -1,5 +1,43 @@
 /* Global Styles for Blue Ridge Mountain Civic Association */
 
+/* Self-hosted fonts (latin subset, variable weight ranges).
+   Non-latin characters fall back to the system font stack. */
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../assets/fonts/source-serif-4-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/source-serif-4-italic-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* Color Palette - Earth Tones & Sunset */
   --color-primary: #2c3e50;
@@ -7,6 +45,7 @@
   --color-accent: #b35900;
   --color-bg-light: #f9f9f9;
   --color-bg-tint: #f0f4f0;
+  --color-bg-warm: #fff8f0;
   --color-text: #333333;
   --color-text-light: #666666;
   --color-white: #ffffff;
@@ -116,7 +155,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -173,7 +212,8 @@ nav ul li a {
 }
 
 nav ul li a:hover,
-nav ul li a.active {
+nav ul li a.active,
+nav ul li a[aria-current="page"] {
   color: var(--color-secondary);
 }
 
@@ -409,7 +449,9 @@ footer {
   cursor: pointer;
   font-weight: 600;
   font-family: inherit;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -418,10 +460,25 @@ footer {
   background-color: var(--color-secondary-dark);
 }
 
+.btn--sm {
+  padding: var(--space-3) var(--space-4);
+  min-height: 44px;
+  font-size: var(--text-sm);
+  align-self: flex-start;
+}
+
+.btn--emergency {
+  background-color: var(--color-accent);
+}
+
+.btn--emergency:hover {
+  background-color: var(--color-accent-dark);
+}
+
 .btn--outline {
   background-color: transparent;
   color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
+  border: 1.5px solid var(--color-secondary);
 }
 
 .btn--outline:hover {
@@ -493,6 +550,14 @@ footer {
   margin-left: 0.2em;
 }
 
+/* Generated star on required-field labels; empty alt text keeps it out
+   of the accessibility tree (the `required` attribute already conveys it) */
+label.required::after {
+  content: "*" / "";
+  color: var(--color-accent);
+  margin-left: 0.2em;
+}
+
 .form-required-note {
   font-size: var(--text-sm);
   color: var(--color-text-light);
@@ -544,36 +609,66 @@ footer {
   font-weight: normal;
 }
 
-/* Card grids (get-involved) */
-.involve-grid {
+/* Card grids — one grid class, sized via --card-min */
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min, 260px), 1fr));
+  gap: var(--space-6);
 }
 
+.card-grid--narrow {
+  --card-min: 240px;
+}
+
+.card-grid--wide {
+  --card-min: 300px;
+
+  gap: var(--space-8);
+}
+
+/* Cards — shared body; accent borders via modifiers */
 .card {
   background: var(--color-white);
   padding: var(--space-6);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.card p {
+  font-size: var(--text-sm);
+}
+
+/* Pin a card's trailing button (or button row) to the bottom edge so
+   buttons align across equal-height grid cards */
+.card > .btn,
+.card > .btn-group {
+  margin-top: auto;
+}
+
+.card--accent-top {
+  border-top: 4px solid var(--color-accent);
+}
+
+.card--secondary-top {
+  border-top: 4px solid var(--color-secondary);
+}
+
+.card--secondary-left {
+  border-left: 4px solid var(--color-secondary);
 }
 
 .card-heading {
   font-family: var(--font-heading);
   color: var(--color-primary);
+  font-size: var(--text-base);
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-border-light);
 }
 
-.involve-card {
-  border-top: 4px solid var(--color-secondary);
-}
-
-.involve-card h2 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
+.card-heading--lg {
   font-size: var(--text-md);
 }
 
@@ -601,10 +696,6 @@ footer {
 }
 
 /* About page */
-.about-mission {
-  margin-bottom: 2rem;
-}
-
 .about-quote {
   font-size: 1.25rem;
   font-style: italic;
@@ -668,37 +759,12 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-/* Conservation partner cards */
-.partner-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-}
-
-.partner-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
+/* Conservation partner card logos */
 .partner-card-logo {
   height: 56px;
   max-width: 180px;
   object-fit: contain;
   object-position: left center;
-}
-
-.partner-card h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: var(--text-md);
-}
-
-.partner-card p {
-  font-size: var(--text-sm);
-  color: var(--color-text);
-  flex: 1;
 }
 
 .about-documents .btn {
@@ -762,20 +828,6 @@ footer {
   gap: var(--space-6);
 }
 
-.event-details {
-  margin-top: 1.5rem;
-  background: var(--color-bg-tint);
-  padding: var(--space-6);
-  border-radius: var(--radius-md);
-}
-
-.payment-or {
-  text-align: center;
-  color: var(--color-text-light);
-  margin: var(--space-4) 0;
-  font-style: italic;
-}
-
 .mailing-address {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -786,12 +838,8 @@ footer {
   margin-right: auto;
 }
 
-.mt-3 {
-  margin-top: 3rem;
-}
-
-.mb-3 {
-  margin-bottom: 3rem;
+.mt-12 {
+  margin-top: var(--space-12);
 }
 
 .did-you-know {
@@ -844,28 +892,8 @@ address {
   padding: var(--space-12) 0 0 0;
 }
 
-/* Emergency cards */
-.emergency-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.emergency-card {
-  border-top: 4px solid var(--color-accent);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.emergency-card h3 {
-  font-size: var(--text-base);
-}
-
 .card-body {
-  font-size: var(--text-sm);
   color: var(--color-text-light);
-  flex: 1;
 }
 
 .phone-number {
@@ -880,45 +908,6 @@ address {
   color: var(--color-text-light);
 }
 
-/* Small buttons */
-.btn-sm {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-3) var(--space-4);
-  min-height: 44px;
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-decoration: none;
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  transition: background 0.2s;
-  align-self: flex-start;
-}
-
-.btn-sm:hover {
-  background-color: var(--color-secondary-dark);
-}
-
-.btn-sm--emergency {
-  background-color: var(--color-accent);
-}
-
-.btn-sm--emergency:hover {
-  background-color: var(--color-accent-dark);
-}
-
-.btn-sm--outline {
-  background-color: transparent;
-  color: var(--color-secondary);
-  border: 1.5px solid var(--color-secondary);
-}
-
-.btn-sm--outline:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-}
-
 .btn-group {
   display: flex;
   flex-wrap: wrap;
@@ -926,18 +915,7 @@ address {
   margin-top: 0.5rem;
 }
 
-/* Directory cards */
-.directory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.directory-card h3 {
-  font-size: var(--text-base);
-  margin-bottom: 1rem;
-}
-
+/* Directory lists (inside cards) */
 .directory-list {
   list-style: none;
   padding: 0;
@@ -986,29 +964,6 @@ address {
   white-space: nowrap;
 }
 
-/* Government cards */
-.government-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.government-card {
-  border-left: 4px solid var(--color-secondary);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.government-card h3 {
-  font-size: var(--text-base);
-}
-
-.government-card p {
-  font-size: var(--text-sm);
-  flex: 1;
-}
-
 /* Callout rows (Mountain Rules section) */
 .callout-row {
   margin-bottom: 2.5rem;
@@ -1026,59 +981,12 @@ address {
 }
 
 .rule-callout {
-  background: #fff8f0;
+  background: var(--color-bg-warm);
   border-left: 4px solid var(--color-accent);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-top: 1rem;
   font-size: var(--text-sm);
-}
-
-.sub-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.sub-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sub-card h4 {
-  font-size: var(--text-base);
-}
-
-.sub-card p {
-  font-size: var(--text-sm);
-}
-
-.sub-card > p:first-of-type {
-  flex: 1;
-}
-
-/* Neighbors & Wildlife cards */
-.neighbors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.neighbor-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.neighbor-card h3 {
-  font-size: var(--text-base);
-}
-
-.neighbor-card p {
-  font-size: var(--text-sm);
-  flex: 1;
 }
 
 /* News list */
@@ -1116,10 +1024,6 @@ address {
   font-size: var(--text-lg);
   color: var(--color-primary);
   margin-bottom: var(--space-6);
-}
-
-.section-title--centered {
-  text-align: center;
 }
 
 .section-title--ruled {
