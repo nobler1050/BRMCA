@@ -186,7 +186,28 @@ function enableAjaxFormSubmit() {
   });
 }
 
+/* A checkbox marked data-exclusive (e.g. "I would prefer not to receive
+   emails") can't be combined with any other checkbox in the same form:
+   checking it clears the rest, and checking any other clears it. */
+function enableExclusiveCheckboxes() {
+  document.querySelectorAll("form input[data-exclusive]").forEach((excl) => {
+    const form = excl.closest("form");
+    form.addEventListener("change", (event) => {
+      const box = event.target;
+      if (box.type !== "checkbox" || !box.checked) return;
+      if (box === excl) {
+        form.querySelectorAll('input[type="checkbox"]').forEach((other) => {
+          if (other !== excl) other.checked = false;
+        });
+      } else {
+        excl.checked = false;
+      }
+    });
+  });
+}
+
 ensureSkipLink();
 renderHeader();
 renderFooter();
 enableAjaxFormSubmit();
+enableExclusiveCheckboxes();
