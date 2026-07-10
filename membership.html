@@ -83,16 +83,12 @@
 
             <div class="contact-message">
               <form
-                action="https://formspree.io/f/xlgkjvje"
+                action="https://github.us18.list-manage.com/subscribe/post?u=ca84eaaa83656e8b1c94006e8&amp;id=b5ae3745fe&amp;f_id=00b6aae6f0"
                 method="POST"
                 class="contact-form"
+                data-mailchimp
               >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New BRMCA Membership Sign-Up"
-                />
-                <input type="hidden" name="Form" value="Membership Form" />
+                <input type="hidden" name="ADDRESS[country]" value="USA" />
                 <h2>Join BRMCA</h2>
                 <p>
                   Provide your information below to stay informed. It&rsquo;s
@@ -105,7 +101,7 @@
                   <input
                     type="text"
                     id="first_name"
-                    name="first_name"
+                    name="FNAME"
                     autocomplete="given-name"
                     required
                   />
@@ -115,7 +111,7 @@
                   <input
                     type="text"
                     id="last_name"
-                    name="last_name"
+                    name="LNAME"
                     autocomplete="family-name"
                     required
                   />
@@ -125,7 +121,7 @@
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="EMAIL"
                     autocomplete="email"
                     required
                   />
@@ -135,7 +131,8 @@
                   <input
                     type="text"
                     id="address"
-                    name="address"
+                    name="ADDRESS[addr1]"
+                    maxlength="70"
                     autocomplete="address-line1"
                     required
                   />
@@ -145,7 +142,8 @@
                   <input
                     type="text"
                     id="city"
-                    name="city"
+                    name="ADDRESS[city]"
+                    maxlength="40"
                     autocomplete="address-level2"
                     required
                   />
@@ -155,7 +153,8 @@
                   <input
                     type="text"
                     id="state"
-                    name="state"
+                    name="ADDRESS[state]"
+                    maxlength="20"
                     autocomplete="address-level1"
                     required
                   />
@@ -165,7 +164,8 @@
                   <input
                     type="text"
                     id="zip"
-                    name="zip"
+                    name="ADDRESS[zip]"
+                    maxlength="10"
                     autocomplete="postal-code"
                     inputmode="numeric"
                     required
@@ -176,7 +176,7 @@
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
+                    name="PHONE"
                     autocomplete="tel"
                   />
                 </div>
@@ -188,24 +188,24 @@
                     <label>
                       <input
                         type="checkbox"
-                        name="interests"
-                        value="Leading or contributing to a committee"
+                        name="group[222900][1]"
+                        value="1"
                       />
                       Leading or contributing to a committee
                     </label>
                     <label>
                       <input
                         type="checkbox"
-                        name="interests"
-                        value="Helping with community activities, such as road cleanup"
+                        name="group[222900][2]"
+                        value="2"
                       />
                       Helping with community activities, such as road cleanup
                     </label>
                     <label>
                       <input
                         type="checkbox"
-                        name="interests"
-                        value="Running for a board seat"
+                        name="group[222900][4]"
+                        value="4"
                       />
                       Running for a board seat
                     </label>
@@ -217,13 +217,22 @@
                     <label>
                       <input
                         type="checkbox"
-                        name="email_preference"
-                        value="I would prefer not to receive emails"
+                        name="group[222900][8]"
+                        value="8"
                         data-exclusive
                       />
                       I would prefer not to receive emails
                     </label>
                   </fieldset>
+                </div>
+                <!-- Mailchimp bot honeypot: must stay present and empty -->
+                <div class="mc-honeypot" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="b_ca84eaaa83656e8b1c94006e8_b5ae3745fe"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
                 </div>
                 <p class="form-required-note">
                   Fields marked <span class="required-mark">*</span> are

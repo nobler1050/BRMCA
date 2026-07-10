@@ -545,6 +545,13 @@ label.required::after {
   margin-bottom: var(--space-4);
 }
 
+/* Mailchimp bot honeypot — parked off-screen, never hidden with
+   display:none (bots skip fields they can detect as invisible) */
+.mc-honeypot {
+  position: absolute;
+  left: -5000px;
+}
+
 .form-error-message {
   display: none;
   font-size: var(--text-sm);

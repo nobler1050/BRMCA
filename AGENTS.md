@@ -16,7 +16,7 @@ The site uses a flat structure: individual HTML files per page, one shared style
 
 - **Header/Footer** — injected by `js/main.js` at runtime; edit `NAV_LINKS` in that file to update navigation on every page simultaneously
 - **Navigation** — defined once in `NAV_LINKS`; supports top-level items and one level of dropdowns; responsive hamburger menu below 1150px
-- **Forms** — contact, membership, and Firewise forms post to Formspree; `js/main.js` submits them via fetch and redirects to `thank-you.html`
+- **Forms** — contact and Firewise forms post to Formspree (fetch); the membership form subscribes to Mailchimp (audience `u=ca84eaaa83656e8b1c94006e8`, list `id=b5ae3745fe`, interests group `222900`) via JSONP. Both paths live in `js/main.js` and redirect to `thank-you.html` on success
 - **Fonts** — Inter and Source Serif 4 are self-hosted under `assets/fonts/` via `@font-face` in `css/style.css` (no third-party requests)
 - **PDF assets** — news documents and bylaws are self-hosted under `assets/docs/` using the naming convention `YYYY-MM-DD-slug.pdf`
 

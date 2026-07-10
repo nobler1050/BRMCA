@@ -146,42 +146,124 @@ function renderFooter() {
     `;
 }
 
+/* Shared submit state: disables the button and clears any prior error,
+   returning succeed/fail callbacks for the outcome. */
+function beginFormSubmit(form) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending…";
+
+  let errorEl = form.querySelector(".form-error-message");
+  if (!errorEl) {
+    errorEl = document.createElement("p");
+    errorEl.className = "form-error-message";
+    submitBtn.insertAdjacentElement("beforebegin", errorEl);
+  }
+  errorEl.textContent = "";
+  errorEl.style.display = "none";
+
+  return {
+    succeed() {
+      window.location.href = "thank-you.html";
+    },
+    fail(message) {
+      errorEl.textContent = message;
+      errorEl.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    },
+  };
+}
+
 function enableAjaxFormSubmit() {
-  document.querySelectorAll("form.contact-form").forEach((form) => {
-    form.addEventListener("submit", async (event) => {
+  document
+    .querySelectorAll("form.contact-form:not([data-mailchimp])")
+    .forEach((form) => {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const submit = beginFormSubmit(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+
+          if (!response.ok) throw new Error("Form submission failed");
+
+          submit.succeed();
+        } catch {
+          submit.fail(
+            "Something went wrong sending this — please try again, or email us directly.",
+          );
+        }
+      });
+    });
+}
+
+/* Mailchimp's subscribe endpoint has no CORS support; JSONP against the
+   post-json variant is its supported client-side path. Success redirects
+   to the same thank-you page as the other forms. */
+function enableMailchimpFormSubmit() {
+  document.querySelectorAll("form[data-mailchimp]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
+      const submit = beginFormSubmit(form);
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalLabel = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending…";
+      const params = new URLSearchParams(new FormData(form));
+      const callbackName = `mailchimpCallback${Date.now()}`;
+      params.set("c", callbackName);
 
-      let errorEl = form.querySelector(".form-error-message");
-      if (!errorEl) {
-        errorEl = document.createElement("p");
-        errorEl.className = "form-error-message";
-        submitBtn.insertAdjacentElement("beforebegin", errorEl);
-      }
-      errorEl.textContent = "";
-      errorEl.style.display = "none";
+      const script = document.createElement("script");
+      let done = false;
+      const finish = (handler) => {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        delete window[callbackName];
+        script.remove();
+        handler();
+      };
 
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
+      /* Fallback: Mailchimp's throttle response concatenates two JSONP
+         calls into one script, a parse error that fires neither the
+         callback nor script.onerror — without this the button would
+         stay stuck on "Sending…". */
+      const timer = setTimeout(
+        () =>
+          finish(() =>
+            submit.fail(
+              "Something went wrong sending this — please wait a few minutes and try again.",
+            ),
+          ),
+        10000,
+      );
+
+      window[callbackName] = (response) => {
+        finish(() => {
+          if (response.result === "success") {
+            submit.succeed();
+            return;
+          }
+          // Mailchimp error messages can contain HTML links; show text only
+          const scratch = document.createElement("div");
+          scratch.innerHTML = response.msg || "";
+          submit.fail(
+            scratch.textContent ||
+              "Something went wrong — please try again, or email us directly.",
+          );
         });
-
-        if (!response.ok) throw new Error("Form submission failed");
-
-        window.location.href = "thank-you.html";
-      } catch {
-        errorEl.textContent =
-          "Something went wrong sending this — please try again, or email us directly.";
-        errorEl.style.display = "block";
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      }
+      };
+      script.onerror = () =>
+        finish(() =>
+          submit.fail(
+            "Something went wrong sending this — please try again, or email us directly.",
+          ),
+        );
+      script.src = `${form.action.replace("/post?", "/post-json?")}&${params}`;
+      document.body.append(script);
     });
   });
 }
@@ -210,4 +292,5 @@ ensureSkipLink();
 renderHeader();
 renderFooter();
 enableAjaxFormSubmit();
+enableMailchimpFormSubmit();
 enableExclusiveCheckboxes();
